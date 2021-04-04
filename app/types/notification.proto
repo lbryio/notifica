@@ -1,0 +1,110 @@
+syntax = "proto3";
+
+package types;
+
+option go_package = "github.com/lbryio/notifica/app/types";
+
+message Notification {
+    oneof type{
+        Comment comment = 1;
+        CreatorSubscriber creatorSubscriber = 2;
+        DailyWatchAvailable dailyWatchAvailable = 3;
+        DailyWatchReminder dailyWatchReminder = 4;
+        DeveloperContribute developerContribute = 5;
+        DeveloperRewards developerRewards = 6;
+        DeveloperWelcome developerWelcome = 7;
+        FirstSubscription firstSubscription = 8;
+        MissedOut missedOut = 9;
+        NewContent newContent = 10;
+        NewLiveStream newLiveStream = 11;
+        Reply reply = 12;
+        RewardsApprovalPrompt rewardsApprovalPrompt = 13;
+        SaltyExclusive saltyExclusive = 14;
+        SubscriptionNudge subscriptionNudge = 15;
+        TutorialPublish tutorialPublish = 16;
+        TutorialSearch tutorialSearch = 17;
+        TutorialRewards tutorialRewards = 18;
+        YoutubePending youtubePending = 19;
+        YoutubeTransferred youtubeTransferred = 20;
+    }
+    string name = 1000;
+    string title = 1001;
+    string text = 1002;
+
+    EmailData emailData = 1500;
+    ClaimData claimData = 1501;
+    DeviceData deviceData = 1502;
+    AppData appData = 1503;
+
+}
+
+message EmailData {
+    string email = 1;
+    string prefix = 2;
+    string subject = 3;
+    string emailTemplate = 4;
+    map<string,string> placeholders = 5;
+}
+
+message ClaimData {
+    string title = 1;
+    string thumbnailURL = 2;
+    string claimID = 3;
+    string name = 4;
+    string channelName = 5;
+    string channelClaimID = 6;
+    string channelThumbnailURL = 7;
+}
+
+message DeviceData {
+
+    string imageURL = 4;
+    string type = 5;
+    string target = 6;
+    string isDataOnly = 7;
+    string analyticsLabel = 8;
+    map<string,string> placeholders = 9;
+}
+
+message AppData {}
+
+message Comment {}
+
+message CreatorSubscriber {}
+
+message DailyWatchAvailable {}
+
+message DailyWatchReminder {}
+
+message DeveloperContribute {}
+
+message DeveloperRewards {}
+
+message DeveloperWelcome {}
+
+message FirstSubscription {}
+
+message MissedOut {}
+
+message NewContent {}
+
+message NewLiveStream {}
+
+message Reply {}
+
+message RewardsApprovalPrompt {}
+
+message SaltyExclusive {}
+
+message SubscriptionNudge {}
+
+message TutorialPublish {}
+
+message TutorialSearch {}
+
+message TutorialRewards {}
+
+message YoutubePending {}
+
+message YoutubeTransferred {}
+
